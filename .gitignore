@@ -1,0 +1,27 @@
+cat > .gitignore << 'EOF'
+# Visual Studio cache and settings
+.vs/
+*.user
+*.suo
+*.VC.db
+
+# Build output
+Debug/
+Release/
+x64/
+x86/
+*.obj
+*.pdb
+*.ipch
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+
+# Other temp files
+*.log
+*.tlog
+*.tmp
+*.cache
+EOF

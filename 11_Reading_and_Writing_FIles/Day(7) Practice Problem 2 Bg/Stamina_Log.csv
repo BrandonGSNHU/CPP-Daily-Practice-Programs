@@ -1,0 +1,11 @@
+Time, State, Stamina
+0,Idle,100
+1,Idle,100
+2,Idle,100
+3,Sprinting,98
+4,Sprinting,78
+5,Sprinting,58
+6,Sprinting,38
+7,Idle,53
+8,Idle,68
+9,Idle,83

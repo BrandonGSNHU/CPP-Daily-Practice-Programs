@@ -14,6 +14,8 @@ Folder Structure
 - 08_Vectors_Hashes — vectors, basic hash use
 - 09_Enumeration_Practice — enums 
 - 10_LeetCode_Practice_Problems — problem-solving in C++
+- 11_Reading_and_Writing_Files - Practicing fstream
+- 12_std_move - Practicing move and the logic surrounding it
 
 Skills
 C++ fundamentals • OOP • memory management • STL • control flow • problem solving

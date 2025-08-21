@@ -17,12 +17,14 @@
 *  a CSV file stored in the Visual Studio project folder.
 */
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <algorithm>
-#include <fstream>
+#include <iostream> // Used for std cout
+#include <iomanip> // Library for setw and precision a.k.a formating
+#include <string> // Library for string functions
+#include <algorithm> // Library for std clamp to prevent under or overflow
+#include <fstream> // Library for writing and reading files
 
+// Enum class creation to store our different states and allow us to swap between them
+// based on different factors 
 enum class State
 {
 	Idle,
@@ -30,9 +32,20 @@ enum class State
 	Exhausted
 };
 
+// Our class Player and the constructor to set and hold default data variables until
+// they are changed in main when an object is created.
+// We want different variables for stamina to be public so they can be edited and changed 
+// We also keep some simple functions in public such as Start and Stop sprinting to easily enable 
+// changes between the states 
 class Player
 {
 public:
+	// This is our constructor where we create the member initializer list.
+	// The constructor has the same name as the class and initializes the objects data members
+	// AKA this sets the default values of the data members if we desire. Here we have them set to
+	// variables that we can then change when we create a player object in main.
+	// We also use an underscore in the naming convention so its easy to tell apart variables within
+	// class members
 	Player(double max, double drainPerSec, double regenPerSec)
 		: maxStamina_(max),
 		  currentStamina_(max),
@@ -62,6 +75,7 @@ public:
 		{
 		case State::Sprinting:
 		{
+			// currentStamina = currentStamina - (drainPerSecond * dt)
 			currentStamina_ -= drainPerSecond_ * dt; // Drain = Rate * Time
 			if (currentStamina_ <= 0.0)
 			{
@@ -73,7 +87,7 @@ public:
 		case State::Idle:
 		{
 			currentStamina_ += regenPerSecond_ * dt; // Regen = Rate * Time
-			currentStamina_ = std::clamp(currentStamina_, 0.0, maxStamina_);
+			currentStamina_  = std::clamp(currentStamina_, 0.0, maxStamina_);
 			break;
 		}
 		case State::Exhausted:
